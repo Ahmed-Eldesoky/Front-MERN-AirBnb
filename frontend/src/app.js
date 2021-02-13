@@ -22,7 +22,11 @@ const App = () => {
               path="/reservations/:id"
               component={ReservationScreen}
             />
-            <Route path="/hosting" component={HostingScreen} />
+            {/* <Route path="/hosting" component={HostingScreen} /> */}\
+            <PrivateRoute
+              path="/hosting"
+              component={HostingScreen}
+            />
             <Route path="*" component={Error} />
           </Switch>
         </Router>

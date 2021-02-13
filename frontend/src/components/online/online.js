@@ -1,10 +1,10 @@
 import React from "react";
+import { Card, CardBody, CardImg } from "reactstrap";
 import "./online.css";
-import { Card, CardImg, CardBody } from "reactstrap";
 
 const Online = () => {
   return (
-    <div className="online-container bg-black text-white p-3 mx-0">
+    <div className="online-container  text-white  mx-0">
       <div className="row">
         <div className="col-12">
           <div className="row m-1 mb-3  ">
