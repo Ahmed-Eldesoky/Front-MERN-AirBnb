@@ -5,6 +5,7 @@ import Navbar from "../components/navbar";
 
 export default function HostingScreen() {
   const [hostings, setHostings] = useState([]);
+ 
 
   async function getHostings() {
     axios
@@ -15,8 +16,11 @@ export default function HostingScreen() {
       })
       .then((res) => {
         setHostings(res.data);
+        
       });
   }
+  
+
 
   useEffect(() => {
     getHostings();
@@ -51,7 +55,7 @@ function NewHosting({ updateHostings }) {
     data.append("type", type);
     data.append("description", description);
     data.append("price", price);
-
+    
     axios
       .post(`http://localhost:4000/reservation/hosting`, data, {
         headers: {
@@ -88,7 +92,7 @@ function NewHosting({ updateHostings }) {
               type="text"
               className="form-control shadow-sm"
               id="input_location"
-              value={location}
+               value={location}
               onChange={(e) => setLocation(e.target.value)}
               required
             />
@@ -142,6 +146,7 @@ function NewHosting({ updateHostings }) {
           <textarea
             class="form-control shadow-sm"
             id="description_textarea"
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows="3"
           ></textarea>
@@ -158,7 +163,7 @@ function NewHosting({ updateHostings }) {
             }}
             required
           />
-          <label class="custom-file-label" for="validatedInputGroupCustomFile">
+          <label   class="custom-file-label"  for="validatedInputGroupCustomFile">
             {image.name || "Choose file..."}
           </label>
         </div>

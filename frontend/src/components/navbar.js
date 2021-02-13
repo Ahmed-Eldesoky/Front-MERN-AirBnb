@@ -40,6 +40,7 @@ export default function Navbar({ lightBg }) {
           aria-labelledby="navMenu"
         >
           {isAuth ? (
+            <div>
             <Link
               className="dropdown-item"
               onClick={() => {
@@ -48,12 +49,28 @@ export default function Navbar({ lightBg }) {
               }}
             >
               Logout
+
             </Link>
+            <Link
+              className="dropdown-item"
+              onClick={() => {
+                setIsAuth(false);
+                history.push("/profile");
+              }}
+            >
+              profile
+
+            </Link>
+            
+            </div>
+            
+            
           ) : (
             <Link className="dropdown-item" to="/login">
               Login with google
             </Link>
           )}
+          
 
           <div class="dropdown-divider"></div>
 

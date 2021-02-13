@@ -8,6 +8,8 @@ import ReservationScreen from "./screens/reservation-screen";
 import HostingScreen from "./screens/hosting-screen";
 import PrivateRoute from "./components/private-route";
 import { AuthProvider } from "./context/auth-context";
+import Profile from "./components/profile/profile";
+import Filtter from "./components/filtter/filtter";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
               component={ReservationScreen}
             />
             <Route path="/hosting" component={HostingScreen} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/filtter/:type" component={Filtter} />
             <Route path="*" component={Error} />
           </Switch>
         </Router>
