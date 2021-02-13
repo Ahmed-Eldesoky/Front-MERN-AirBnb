@@ -1,45 +1,38 @@
+import { PinDropSharp } from "@material-ui/icons";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../navbar";
-import SearchResultItem from "./search-result-item";
+ import SearchResultItem from "./SearchResultItem ";
 
-export default function SearchResult() {
+export default function Filtter(props) {
   const [reservations, setReservations] = useState([]);
-  const location = useLocation();
-  const query = location.search.split(/\?|&|=/).filter(Boolean);
-  console.log(location)
 
-  useEffect(() => {
-    const body = document.getElementsByTagName("body")[0];
-    body.classList.add("bg-light-gray");
 
-    return () => {
-      body.classList.remove("bg-light-gray");
-    };
-  }, []);
+
 
   useEffect(() => {
     axios
-      .post("http://localhost:4000/reservation", {
-        location: query[1],
-        nOfGuests: query[3],
-        
+      .post("http://localhost:4000/reservation/type", {
+        type: props.match.params.type,
+       
       })
      
       .then((data) => {
         setReservations(data.data);
+        
       });
   }, []);
 
   return (
     <div>
       <Navbar lightBg />
+     
 
       <div className="container mt-5">
         <header>
           <h4>
-            Search result for: <strong>{query[1]}</strong>
+            Search result for: <strong>{props.match.params.type}</strong>
           </h4>
 
           <div className="d-flex">
@@ -65,7 +58,7 @@ export default function SearchResult() {
             <h3>No results found</h3>
           )}
         </section>
-      </div>
+      </div> 
     </div>
   );
 }

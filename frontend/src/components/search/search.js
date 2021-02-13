@@ -26,23 +26,7 @@ const Search=() =>{
                     <p>Location</p> 
                     <input ref={locationref} className="border-0 p-1" type="text"  placeholder="where are you going ?"  />
                 </div>
-                <div className=" caption-search-inf" onClick={()=> setShowSearch(!showSearch)}>
-                     {showSearch && <SearchDate IsInit={true} setParentInitDate={setIndate}
-                         
-                     />}
-                    <p>Check in</p>
-                    {/* <DayPickerInput onDayChange={day => console.log(day)} /> */}
-                   
-
-                    <input className="border-0" type="text" value={indate}  onChange={e => setIndate(SearchDate.selectionRange.startDate)}/>
-
-                </div>
-                <div className=" caption-search-inf " onClick={()=> setShow(!show)}>
-                    {show && <SearchDate IsInit={false} setParentEndDate={setendDate}/>}
-                    <p>Check out</p>
-                    
-                    <input className="border-0" type="text" value={endDate} onChange={e => setendDate(SearchDate.selectionRange.endDate)}/>
-                </div>
+               
                 <div className="caption-search-inf caption-search-inf-guests d-flex justify-content-between align-items-lg-center ">
                     <div onClick={()=>setShowGuests(!show)} >
                         <div className="guests__show" >
