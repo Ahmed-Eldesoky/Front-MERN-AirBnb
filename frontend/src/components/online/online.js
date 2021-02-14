@@ -1,10 +1,10 @@
 import React from "react";
+import { Card, CardBody, CardImg } from "reactstrap";
 import "./online.css";
-import { Card, CardImg, CardBody } from "reactstrap";
 
 const Online = () => {
   return (
-    <div className="online-container bg-black text-white p-3 mx-0">
+    <div className="online-container  text-white  mx-0">
       <div className="row">
         <div className="col-12">
           <div className="row m-1 mb-3  ">
@@ -14,12 +14,10 @@ const Online = () => {
                 Interactive activities you can do together, led by expert hosts.
               </p>
             </div>
-            <div class="col-md-4 offset-md-2 ">
-              <button className="btn-1 ">Explore all</button>
-            </div>
+            
           </div>
           <div className="row m-1">
-            <div className="col-md-6">
+            <div className="col-md-6 ">
               <Card>
                 <CardImg
                   src={require("../../image/online-ex/online1.jpg").default}
@@ -34,7 +32,7 @@ const Online = () => {
             </div>
             <div className="col-md-6">
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-6 rounded-4">
                   <Card>
                     <CardImg
                       src={require("../../image/online-ex/online2.jpg").default}
@@ -47,7 +45,7 @@ const Online = () => {
                     </CardBody>
                   </Card>
                 </div>
-                <div className="col-md-6 ">
+                <div className="col-md-6  rounded-4">
                   <Card>
                     <CardImg
                       src={require("../../image/online-ex/online3.jpg").default}
@@ -62,7 +60,7 @@ const Online = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="col-12 ">
+                <div className="col-12 mt-4 rounded-4 ">
                   <Card>
                     <CardImg
                       src={require("../../image/online-ex/online4.jpg").default}

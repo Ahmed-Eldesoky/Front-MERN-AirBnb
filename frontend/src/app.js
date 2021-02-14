@@ -24,6 +24,11 @@ const App = () => {
               path="/reservations/:id"
               component={ReservationScreen}
             />
+            {/* <Route path="/hosting" component={HostingScreen} /> */}\
+            <PrivateRoute
+              path="/hosting"
+              component={HostingScreen}
+            />
             <Route path="/hosting" component={HostingScreen} />
             <Route path="/profile" component={Profile} />
             <Route path="/filtter/:type" component={Filtter} />

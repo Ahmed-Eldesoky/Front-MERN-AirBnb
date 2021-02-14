@@ -1,4 +1,4 @@
-.card {
+.liveCard {
     margin: 10px;
     border-radius: 10px;
     overflow: hidden;
@@ -6,12 +6,10 @@
     transition: transform 100ms ease-in;
     cursor: pointer;
 }
-
-.card:hover {
+.liveCard:hover {
     transform: scale(1.07);
 }
-
-.card > img {
+.liveCard > img {
     object-fit: contain;
     min-width: 300px;
     min-height: 200px;

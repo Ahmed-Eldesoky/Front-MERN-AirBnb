@@ -3,7 +3,7 @@ import './LiveCards.css'
 
 function LiveCard({ src, title}) {
     return (
-        <div className='card'>
+        <div className='liveCard'>
             <img src={src} alt="no img" />
             <div className="card__info">
                 <h2>{title}</h2>
