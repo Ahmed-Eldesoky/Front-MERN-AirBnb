@@ -54,7 +54,7 @@ export default function Navbar({ lightBg }) {
             <Link
               className="dropdown-item"
               onClick={() => {
-                setIsAuth(false);
+                setIsAuth(true);
                 history.push("/profile");
               }}
             >

@@ -3,17 +3,30 @@ import { FaSearch } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import Navbar from "../navbar";
 
+import SearchDate from '../search-date/search-date.js';
+import '../search/search.css'
+
 export default function Header() {
   const [location, setLocation] = useState("");
   const [guests, setGuests] = useState("");
+  // const [startData, setstartData] = useState("");
+  // const [EndData, setEndData] = useState("");
   const history = useHistory();
+
+  const [showSearch, setShowSearch] = useState(false);
+    const [show,setShow] = useState(false);
+    
+    const [indate, setIndate] = useState('');
+    const [endDate, setendDate] = useState('');
+ 
 
   function handleSearch(e) {
     e.preventDefault();
 
     if (!location) return;
+    console.log(indate)
     history.push(
-      `/reservations?location=${location}${guests ? "&gutests=" + guests : ""}`
+      `/reservations?location=${location}${guests ? "&gutests=" + guests : ""}${indate ? "&indate=" + indate : ""} ${endDate ? "&endData=" + endDate : ""}`
     );
   }
 
@@ -41,10 +54,30 @@ export default function Header() {
             />
           </div>
 
-          <div
-            className="ml-4 mr-5"
-            style={{ backgroundColor: "gray", height: "2rem", width: 1 }}
-          ></div>
+          <div className="ml-4 mr-5 d-flex align-items-center justify-content-between ">
+            
+         <div className=" caption-search-inf" onClick={()=> setShowSearch( !showSearch)}>
+           <div className="postion-relative">
+                     {showSearch && <SearchDate IsInit={true} setParentInitDate={setIndate}
+                         
+                     />}
+                     </div>
+                    <p>Check in</p>
+                    {/* <DayPickerInput onDayChange={day => console.log(day)} /> */}
+                   
+
+                    <input className="border-0" type="text" value={indate}  onChange={e => setIndate(SearchDate.selectionRange.startDate)}/>
+
+                </div>
+                <div className=" caption-search-inf " onClick={()=> setShow(!show)}>
+                    {show && <SearchDate  IsInit={false} setParentEndDate={setendDate}/>}
+                    <p>Check out</p>
+                    
+                    <input className="border-0 " type="text" value={endDate} onChange={e => setendDate(SearchDate.selectionRange.endDate)}/>
+                </div>
+            </div> 
+         
+
 
           {/* Guests */}
           <div className="form-group mb-0">
