@@ -24,13 +24,19 @@ export default function SearchResult() {
       .post("http://localhost:4000/reservation", {
         location: query[1],
         nOfGuests: query[3],
+        startdate:query[5],
+        enddata:query[7]
         
       })
+      
+
      
       .then((data) => {
+      
         setReservations(data.data);
       });
   }, []);
+  console.log(query)
 
   return (
     <div>

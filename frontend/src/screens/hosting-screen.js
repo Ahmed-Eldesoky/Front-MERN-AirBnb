@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { getAuthToken } from "../auth";
 import Navbar from "../components/navbar";
+import SearchDate from '../components/search-date/search-date';
+import '../components/search/search.css'
 
 export default function HostingScreen() {
   const [hostings, setHostings] = useState([]);
@@ -42,8 +44,17 @@ function NewHosting({ updateHostings }) {
   const [type, setType] = useState("");
   const [nOfGuests, setNOfGuests] = useState(0);
   const [price, setPrice] = useState(0);
+  const [period, setperiod] = useState(0);
+  // const [startData, setstartData] = useState("");
+  // const [endData, setendData] = useState("");
   const [image, setImage] = useState({});
 
+  const [showSearch, setShowSearch] = useState(false);
+  const [show,setShow] = useState(false);
+
+  const [indate, setIndate] = useState('From');
+  const [endDate, setendDate] = useState('To');
+  
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -55,6 +66,10 @@ function NewHosting({ updateHostings }) {
     data.append("type", type);
     data.append("description", description);
     data.append("price", price);
+    // data.append("period", period);
+    data.append("indate", indate);
+    data.append("endDate", endDate);
+    
     
     axios
       .post(`http://localhost:4000/reservation/hosting`, data, {
@@ -110,7 +125,7 @@ function NewHosting({ updateHostings }) {
               required
             />
           </div>
-          <div className="form-group col-md-6 col-lg-4">
+          <div className="form-group col-md-6 col-lg-6">
             <label for="type_input">Type</label>
             <select
               id="type_input"
@@ -128,7 +143,7 @@ function NewHosting({ updateHostings }) {
               <option value="PETS_WELCOME">Pets welcome</option>
             </select>
           </div>
-          <div className="form-group col-md-6 col-lg-4">
+          <div className="form-group col-md-6 col-lg-6">
             <label for="guests_input">Price</label>
             <input
               type="number"
@@ -140,6 +155,63 @@ function NewHosting({ updateHostings }) {
               required
             />
           </div>
+          
+          {/* <div className="form-group col-md-6 col-lg-4">
+            <label for="guests_input">period</label>
+            <input
+              type="number"
+              min="0"
+              className="form-control shadow-sm"
+              id="guests_input"
+              value={period}
+              onChange={(e) => setperiod(e.target.value)}
+              required
+            />
+          </div> */}
+        </div>
+        <div className="row">
+          <div className="form-group col-sm-12 col-md-6 col-lg-6" >
+          {/* <label for="guests_input">Start data</label>
+            <input
+              type="date"
+              
+              className="form-control shadow-sm"
+              id="guests_input"
+              value={startData}
+              onChange={(e) => setstartData(e.target.value)}
+              required
+            /> */}
+            <div className=" caption-search-inf" onClick={()=> setShowSearch(!showSearch)}>
+                     {showSearch && <SearchDate IsInit={true} setParentInitDate={setIndate}
+                         
+                     />}
+                    <p>Check in</p>
+                    {/* <DayPickerInput onDayChange={day => console.log(day)} /> */}
+                   
+
+                    <input className="border-0" type="text" value={indate}  onChange={e => setIndate(SearchDate.selectionRange.startDate)}/>
+
+                </div>
+          </div>
+          <div className="form-group col-sm-12 col-md-6 col-lg-6" >
+          {/* <label for="guests_input">End data</label>
+            <input
+              type="date"
+             
+              className="form-control shadow-sm"
+              id="guests_input"
+              value={endData}
+              onChange={(e) => setendData(e.target.value)}
+              required
+            /> */}
+            <div className=" caption-search-inf " onClick={()=> setShow(!show)}>
+                    {show && <SearchDate IsInit={false} setParentEndDate={setendDate}/>}
+                    <p>Check out</p>
+                    
+                    <input className="border-0" type="text" value={endDate} onChange={e => setendDate(SearchDate.selectionRange.endDate)}/>
+                </div>
+          </div>
+
         </div>
         <div class="form-group mt-n2">
           <label for="description_textarea">Description</label>
