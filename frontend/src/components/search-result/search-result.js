@@ -49,22 +49,22 @@ export default function SearchResult() {
         <div className=" mt-5">
         <header>
           <div className="ml-5">
-          <h4>
-            Search result for: <strong>{query[1]}</strong>
-          </h4>
-
-          <div className="d-flex">
-            <p>
-              <strong>{"#"}</strong> Stays
-            </p>
-            <p className="">
-              <strong>{"..."}</strong> Governorate
-            </p>
-          </div>
+            <h4>
+              Search result for: <strong>{query[1]}</strong>
+            </h4>
+            <div className="d-flex">
+              <p>
+                <strong>{"#"}</strong> Stays
+              </p>
+              <br></br>
+              <p className="">
+                <strong>{"..."}</strong> Governorate
+              </p>
+            </div>
           </div>
         </header>
 
-        <hr className="mt-n1" />
+        <hr className="mt-n1 ml-4 w-75" />
         <div className="row">
         {/*  */}
           <div className="side-stays col-12 col-xl-12 col-md-12">

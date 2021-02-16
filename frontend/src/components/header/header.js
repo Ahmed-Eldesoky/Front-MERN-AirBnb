@@ -56,25 +56,21 @@ export default function Header() {
 
           <div className="ml-4 mr-5 d-flex align-items-center justify-content-between ">
             
-         <div className=" caption-search-inf" onClick={()=> setShowSearch( !showSearch)}>
-           <div className="postion-relative">
-                     {showSearch && <SearchDate IsInit={true} setParentInitDate={setIndate}
-                         
-                     />}
-                     </div>
-                    <p>Check in</p>
-                    {/* <DayPickerInput onDayChange={day => console.log(day)} /> */}
-                   
-
-                    <input className="border-0" type="text" value={indate}  onChange={e => setIndate(SearchDate.selectionRange.startDate)}/>
-
-                </div>
-                <div className=" caption-search-inf " onClick={()=> setShow(!show)}>
-                    {show && <SearchDate  IsInit={false} setParentEndDate={setendDate}/>}
-                    <p>Check out</p>
-                    
-                    <input className="border-0 " type="text" value={endDate} onChange={e => setendDate(SearchDate.selectionRange.endDate)}/>
-                </div>
+            <div className=" caption-search-inf" onClick={()=> setShowSearch( !showSearch)}>
+              <div className="postion-relative">
+                {showSearch && <SearchDate IsInit={true} setParentInitDate={setIndate}/>}
+              </div>
+              <label className="mb-1 font-weight-bold">Check in</label>
+              <br/>
+              {/* <DayPickerInput onDayChange={day => console.log(day)} /> */}
+              <input className="form-control border-0 p-0 m-0" type="text" placeholder="From" value={indate}  onChange={e => setIndate(SearchDate.selectionRange.startDate)}/>
+            </div>
+            <div className=" caption-search-inf " onClick={()=> setShow(!show)}>
+              {show && <SearchDate  IsInit={false} setParentEndDate={setendDate}/>}
+              <label className="mb-1 font-weight-bold">Check out</label>       
+              <br/>  
+              <input className="form-control border-0 p-0 m-0" type="text" placeholder="To" value={endDate} onChange={e => setendDate(SearchDate.selectionRange.endDate)}/>
+            </div>
             </div> 
          
 
