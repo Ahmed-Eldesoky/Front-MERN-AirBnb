@@ -103,6 +103,7 @@ history.push('/filtter/PETS_WELCOME')
          />
     </div>
     </div>
+  
     <div className="footer">
     <div className="row">
 

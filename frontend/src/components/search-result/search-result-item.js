@@ -7,7 +7,7 @@ export default function SearchResultItem({ reservation }) {
   return (
     <div
       className="card overflow-hidden mx-auto rounded-lg mb-3"
-      style={{ maxWidth: 540 }}
+      style={{ maxWidth: '100%'}}
     >
       <Link
         to={`/reservations/${_id}`}
@@ -15,8 +15,8 @@ export default function SearchResultItem({ reservation }) {
       >
         <div className="col-md-6">
           <img
-            width="100%"
-            height="100%"
+            width="400px"
+            height="300px"
             src={`http://localhost:4000/reservation/${_id}/image`}
             alt="apartment"
           />

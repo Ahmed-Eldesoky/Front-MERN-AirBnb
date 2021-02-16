@@ -26,7 +26,7 @@ export default function Header() {
     if (!location) return;
     console.log(indate)
     history.push(
-      `/reservations?location=${location}${guests ? "&gutests=" + guests : ""}${indate ? "&indate=" + indate : ""} ${endDate ? "&endData=" + endDate : ""}`
+      `/reservations?location=${location}${indate ? "&indate=" + indate : ""} ${endDate ? "&endData=" + endDate : ""}${guests ? "&gutests=" + guests : ""}`
     );
   }
 

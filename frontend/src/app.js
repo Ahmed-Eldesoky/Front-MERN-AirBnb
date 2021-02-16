@@ -10,6 +10,7 @@ import PrivateRoute from "./components/private-route";
 import { AuthProvider } from "./context/auth-context";
 import Profile from "./components/profile/profile";
 import Filtter from "./components/filtter/filtter";
+import MyFancyComponent from "./components/map/map";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/hosting" component={HostingScreen} />
             <Route path="/profile" component={Profile} />
             <Route path="/filtter/:type" component={Filtter} />
+            <Route path="/map" component={MyFancyComponent} />
             <Route path="*" component={Error} />
           </Switch>
         </Router>
