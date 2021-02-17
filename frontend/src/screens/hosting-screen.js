@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { getAuthToken } from "../auth";
 import Navbar from "../components/navbar";
 import SearchDate from '../components/search-date/search-date';
-import '../components/search/search.css'
+import Footer from '../components/footer/footer';
+import '../components/search/search.css';
 
 export default function HostingScreen() {
   const [hostings, setHostings] = useState([]);
@@ -83,7 +84,7 @@ function NewHosting({ updateHostings }) {
   }
 
   return (
-    <div className="container mt-5">
+    <div className="container newHost">
       <h3>New Hosting</h3>
       <form
         onSubmit={handleSubmit}
@@ -189,7 +190,7 @@ function NewHosting({ updateHostings }) {
                     {/* <DayPickerInput onDayChange={day => console.log(day)} /> */}
                    
 
-                    <input className="border-0" type="text" value={indate}  onChange={e => setIndate(SearchDate.selectionRange.startDate)}/>
+                    <input className="form-control border-0" type="text" value={indate}  onChange={e => setIndate(SearchDate.selectionRange.startDate)}/>
 
                 </div>
           </div>
@@ -204,11 +205,11 @@ function NewHosting({ updateHostings }) {
               onChange={(e) => setendData(e.target.value)}
               required
             /> */}
-            <div className=" caption-search-inf " onClick={()=> setShow(!show)}>
+            <div className="caption-search-inf " onClick={()=> setShow(!show)}>
                     {show && <SearchDate IsInit={false} setParentEndDate={setendDate}/>}
                     <p>Check out</p>
                     
-                    <input className="border-0" type="text" value={endDate} onChange={e => setendDate(SearchDate.selectionRange.endDate)}/>
+                    <input className="form-control border-0" type="text" value={endDate} onChange={e => setendDate(SearchDate.selectionRange.endDate)}/>
                 </div>
           </div>
 
@@ -242,9 +243,9 @@ function NewHosting({ updateHostings }) {
 
         <button
           type="submit"
-          className="btn bg-primary btn-sm m-0 py-1 px-2 text-white mt-2 d-block ml-auto"
+          className="addHost bg-primary btn-sm m-0 py-1 px-2 text-white mt-4 d-block ml-auto" 
         >
-          Add hosting
+          Add Hosting
         </button>
       </form>
     </div>
@@ -253,44 +254,47 @@ function NewHosting({ updateHostings }) {
 
 function HostingList({ hostings }) {
   return (
-    <div className="container mt-5">
-      <div className="mt-5">
-        <h3 className="mb-2">Your hostings</h3>
-        <div className="row">
-          {hostings.map((hosting) => (
-            <div key={hosting._id} className="col-12 col-md-6">
-              <div
-                className="card overflow-hidden rounded-lg mb-3 ml-0"
-                style={{ maxWidth: 540 }}
-              >
-                <div className="row no-gutters p-0 text-decoration-none">
-                  <div className="card-img-top">
-                    <img
-                      className="img-fluid"
-                      width="100%"
-                      height="100%"
-                      src={`http://localhost:4000/reservation/${hosting._id}/image`}
-                      alt="apartment"
-                    />
-                  </div>
-                  <div className="card-body">
-                    <h5 className="card-title">{hosting.name}</h5>
-                    <p className="card-text">{hosting.description}</p>
-                    <p className="card-text">
-                      <div>
-                        Type: <strong>{hosting.type}</strong>
-                      </div>
-                      <div className="mt-2">
-                        Price: <strong>{hosting.price} EGP</strong>
-                      </div>
-                    </p>
+    <div>
+      <div className="container mt-5">
+        <div className="mt-5">
+          <h3 className="mb-3">Your hostings</h3>
+          <div className="row">
+            {hostings.map((hosting) => (
+              <div key={hosting._id} className="col-12 col-md-6">
+                <div
+                  className="card overflow-hidden rounded-lg mb-3 ml-0"
+                  style={{ maxWidth: 540 }}
+                  >
+                  <div className="row no-gutters p-0 text-decoration-none">
+                    <div className="card-img-top">
+                      <img
+                        className="img-fluid"
+                        width="100%"
+                        height="100%"
+                        src={`http://localhost:4000/reservation/${hosting._id}/image`}
+                        alt="apartment"
+                        />
+                    </div>
+                    <div className="card-body">
+                      <h5 className="card-title">{hosting.name}</h5>
+                      <p className="card-text">{hosting.description}</p>
+                      <p className="card-text">
+                        <div>
+                          Type: <strong>{hosting.type}</strong>
+                        </div>
+                        <div className="mt-2">
+                          Price: <strong>{hosting.price} EGP</strong>/Night
+                        </div>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

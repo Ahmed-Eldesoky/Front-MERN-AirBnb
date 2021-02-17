@@ -154,13 +154,13 @@ const Footer=() => {
                         <a href="#!" class="text-dark font-weight-bold"> English(US) </a>
                         <a href="#!" class="text-dark font-weight-bold text-decoration"> $ USD </a>
 
-                        <a href="https://www.facebook.com/airbnbuk/" className="fb-ic mr-3">
+                        <a href="https://www.facebook.com/airbnbuk/" target="_blank" className="fb-ic mr-3">
                             <MDBIcon fab icon="facebook-f" />
                         </a>
-                        <a href="https://twitter.com/Airbnb?s=08" className="tw-ic mr-3">
+                        <a href="https://twitter.com/Airbnb?s=08" target="_blank" className="tw-ic mr-3">
                             <MDBIcon fab icon="twitter" />
                         </a>
-                        <a href="https://www.instagram.com/airbnb?igshid=1a9sw1s3r0qji" className="ins-ic mr-3">
+                        <a href="https://www.instagram.com/airbnb?igshid=1a9sw1s3r0qji" target="_blank" className="ins-ic mr-3">
                             <MDBIcon fab icon="instagram" />
                         </a>
                         

@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function SearchResultItem({ reservation }) {
-  const { name, description, image, price, type, _id } = reservation;
+  const { name, description, image, nOfGuests,price, type, _id} = reservation;
   console.log(_id)
   return (
     <div
-      className="card overflow-hidden mx-auto rounded-lg mb-3"
-      style={{ maxWidth: '100%'}}
+      className=" overflow-hidden rounded mb-3"
+      style={{ maxWidth: '90%'}}
     >
       <Link
         to={`/reservations/${_id}`}
@@ -15,27 +15,38 @@ export default function SearchResultItem({ reservation }) {
       >
         <div className="col-md-6">
           <img
-            width="400px"
-            height="300px"
+            width="80%"
+            height="90%px"
+            className='rounded'
             src={`http://localhost:4000/reservation/${_id}/image`}
             alt="apartment"
           />
         </div>
-        <div className="col-md-6">
-          <div className="card-body">
-            <h5 className="card-title">{name}</h5>
-            <p className="card-text">{description}</p>
-            <p className="card-text">
-              <div>
-                Type: <strong>{type}</strong>
-              </div>
-              <div className="mt-2">
-                Price: <strong>{price} EGP</strong>
+        <div className='DivDesc col-12 col-xl-6 col-md-6'>
+          <div className='col-8'>
+              <p>{type}</p>
+              <h4 className="">{name}</h4>
+              <hr style={{width:"50px"}}/>
+              <p>{nOfGuests} Guests</p>
+              <p>{description}</p>
+              <p className="P_Price" style={{color:"#2F4F4F"}}><strong>{price}EGP </strong>/ night</p>
+          </div>
+      </div>
+        {/* <div className="col-md-6">
+          <div className="text-dark">
+            <p>{type}</p>
+            <h4 className="">{name}</h4>
+            <hr style={{width:"60px"}}/>
+            <p className="">{description}</p>
+            <p className="">
+              <div className="" style={{marginLeft:"180px"}}>
+                <strong>$ {price} EGP</strong>/Night
               </div>
             </p>
           </div>
-        </div>
+        </div> */}
       </Link>
+      <hr></hr>
     </div>
   );
 }

@@ -4,7 +4,8 @@ import { useLocation } from "react-router-dom";
 import MyFancyComponent from "../map/map";
 import Navbar from "../navbar";
 import SearchResultItem from "./search-result-item";
-import './searchResult.css'
+import './searchResult.css';
+import '../filtter/filtter.css';
 
 export default function SearchResult() {
   const [reservations, setReservations] = useState([]);
@@ -42,25 +43,24 @@ export default function SearchResult() {
 
   return (
     <div>
-      <Navbar  lightBg />
+      <div>
+        <Navbar  lightBg />
+      </div>
       
       <div className="row">
-        <div className="col-md-12 col-lg-8">
-        <div className=" mt-5">
+        <div className="leftside col-md-12 col-lg-8">
+        <div className=" mt-3">
         <header>
           <div className="ml-5">
-            <h4>
-              Search result for: <strong>{query[1]}</strong>
-            </h4>
             <div className="d-flex">
               <p>
                 <strong>{"#"}</strong> Stays
               </p>
-              <br></br>
-              <p className="">
-                <strong>{"..."}</strong> Governorate
-              </p>
             </div>
+            <h1>
+              <strong>Stays in <span> {query[1]} </span>Governorate</strong>
+            </h1>
+            <p className=''>Review COVID-19 travel restrictions before you book...</p>
           </div>
         </header>
 
@@ -76,7 +76,9 @@ export default function SearchResult() {
               </div>
             ))
           ) : (
-            <h3>No results found</h3>
+            <div className='errorr'>
+              <h1><i className='fas mr-3'>&#xf714;</i>This Location Has No Data To Show...<i className='fas ml-2'>&#xf714;</i></h1>
+            </div>
           )}
         </section>
           </div>
@@ -89,7 +91,7 @@ export default function SearchResult() {
       </div>
         </div>
         <div className="col-md-12 col-lg-4">
-        <div className="side-map   ">
+        <div className="side-map">
                <div className="w-100">
                <MyFancyComponent   
                    location={`${query[1]}`} />

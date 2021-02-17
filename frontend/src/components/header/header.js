@@ -34,14 +34,14 @@ export default function Header() {
     <div>
       <Navbar />
 
-      <div className="container d-flex align-items-center justify-content-center">
+      <div className="container mt-5 d-flex align-items-center justify-content-center">
         <form
           onSubmit={handleSearch}
           className="mt-5 py-2 px-5 d-flex align-items-center justify-content-between bg-white rounded-pill shadow"
         >
           {/* Location */}
           <div className="form-group mb-0">
-            <label for="location" className="mb-0 font-weight-bold">
+            <label for="location" className="mb-0 pt-1 font-weight-bold">
               Location
             </label>
             <input
@@ -60,24 +60,21 @@ export default function Header() {
               <div className="postion-relative">
                 {showSearch && <SearchDate IsInit={true} setParentInitDate={setIndate}/>}
               </div>
-              <label className="mb-1 font-weight-bold">Check in</label>
+              <label className="mb-1 pt-1 font-weight-bold">Check in</label>
               <br/>
               {/* <DayPickerInput onDayChange={day => console.log(day)} /> */}
               <input className="form-control border-0 p-0 m-0" type="text" placeholder="From" value={indate}  onChange={e => setIndate(SearchDate.selectionRange.startDate)}/>
             </div>
             <div className=" caption-search-inf " onClick={()=> setShow(!show)}>
               {show && <SearchDate  IsInit={false} setParentEndDate={setendDate}/>}
-              <label className="mb-1 font-weight-bold">Check out</label>       
+              <label className="mb-1 pt-1 font-weight-bold">Check out</label>       
               <br/>  
               <input className="form-control border-0 p-0 m-0" type="text" placeholder="To" value={endDate} onChange={e => setendDate(SearchDate.selectionRange.endDate)}/>
             </div>
             </div> 
-         
-
-
           {/* Guests */}
           <div className="form-group mb-0">
-            <label for="guests" className="mb-0 font-weight-bold">
+            <label for="guests" className="mb-0 pt-1 font-weight-bold">
               Guests
             </label>
             <input

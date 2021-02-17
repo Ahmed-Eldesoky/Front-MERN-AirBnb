@@ -30,7 +30,7 @@ export default function SearchResultItem({ reservation }) {
                 Type: <strong>{type}</strong>
               </div>
               <div className="mt-2">
-                Price: <strong>{price} EGP</strong>
+                Price: <strong>${price} EGP</strong>/night
               </div>
             </p>
           </div>

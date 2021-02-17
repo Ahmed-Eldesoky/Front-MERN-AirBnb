@@ -4,7 +4,7 @@
     left:30%;
     width: 100vw; */
     z-index: 100;
-    margin-top: 80px;
+    margin-top: 90px;
 }
 .caption-search{
     background-color: white !important;
@@ -34,6 +34,7 @@
     color: black !important;
     height: 100px;  
 } 
+
 .divSearch{
     height:45px;
     width:50px;
@@ -53,8 +54,17 @@
     border-radius: 30px;
     background-color: white;
 }
-
+.inputt{
+    width: 80%;
+}
 
 .caption-search-inf-guests{
     border-right:none;
+}
+.newHost{
+    margin-top: 80px;
+}
+.addHost{
+    width: 120px;
+    height: 40px;
 }

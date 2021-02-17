@@ -31,7 +31,7 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="contoiner">
+      <div className="contoiner profile">
         <Navbar lightBg />
 
         <div className="row">
