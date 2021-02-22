@@ -40,7 +40,7 @@ export default function ReservationScreen() {
     <div>
       <Navbar lightBg />
       <div className="container mt-5">
-        <div className="row mt-5">
+        <div className="row" style={{marginTop:"9%"}}>
           <div className="col-12 col-md-6 col-lg-4">
             <img
               width="100%"

@@ -12,7 +12,6 @@ import Profile from "./components/profile/profile";
 import Filtter from "./components/filtter/filtter";
 import MyFancyComponent from "./components/map/map";
 
-
 const App = () => {
   return (
     <div>
@@ -35,6 +34,7 @@ const App = () => {
             <Route path="/profile" component={Profile} />
             <Route path="/map" component={MyFancyComponent} />
             <Route path="/filtter/:type" component={Filtter} />
+            <Route path="/map" component={MyFancyComponent} />
             <Route path="*" component={Error} />
           </Switch>
         </Router>

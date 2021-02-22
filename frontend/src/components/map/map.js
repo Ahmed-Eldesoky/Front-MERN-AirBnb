@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from "react";
 import { compose, withProps } from "recompose";
 import {
@@ -13,7 +15,7 @@ const MyMapComponent = compose(
     googleMapURL:
       "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` ,width:'600px'}} />,
+    containerElement: <div style={ {height: "1000px"}} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
   withScriptjs,
@@ -30,22 +32,30 @@ const MyMapComponent = compose(
     </GoogleMap>
   );
 });
+
+
+
 export default class MyFancyComponent extends React.PureComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       result: [],
       lat: 26.42231,
       lng: 29.227089,
-      // coords: { lat: 26.42231, lng: 29.227089 },
+     
       isMarkerShown: false,
     };
+   
   }
+
+  
+
   componentDidMount() {
     this.delayedShowMarker();
+    const axios = require("axios");
     const params = {
       access_key: "297b67d829c2337b2ea79235d44614b0",
-      query: `aswan, Egypt`,
+      query: `${this.props.location}, Egypt`,
     };
 
     axios
@@ -80,6 +90,8 @@ export default class MyFancyComponent extends React.PureComponent {
     this.setState({ isMarkerShown: false });
     this.delayedShowMarker();
   };
+  
+
   render() {
     return (
       <MyMapComponent
@@ -92,3 +104,10 @@ export default class MyFancyComponent extends React.PureComponent {
     );
   }
 }
+
+
+
+
+
+
+
