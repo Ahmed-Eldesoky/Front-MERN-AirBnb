@@ -22,11 +22,14 @@ export default function SearchResult() {
   useEffect(() => {
     axios
       .post("http://localhost:4000/reservation", {
+        // location: query[1],
+        // nOfGuests: query[3],
+        // startdate:query[5],
+        // enddata:query[7]
         location: query[1],
-        nOfGuests: query[3],
-        startdate:query[5],
-        enddata:query[7]
-        
+        startdate: query[3],
+        enddata:query[5],
+        nOfGuests:query[7]
       })
       
 
